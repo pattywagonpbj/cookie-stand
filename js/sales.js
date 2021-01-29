@@ -52,6 +52,9 @@ Store.prototype.render = function () {
     td.textContent = this.cookiesSoldEachHour[i];
     tr.appendChild(td);
   }
+  let td = document.createElement('td');
+  td.textContent = this.dailyStoreTotal;
+  tr.appendChild(td);
 };
 
 let seattleLocation = new Store('Seattle', 23, 65, 6.3);
