@@ -4,6 +4,7 @@
 
 ### Collaboration
 - I collaborated with Anthony Williams, Patrick Laurion, Louis Lassegue, Kassie Bradshaw, Aloysious when it comes to the code shown below. All of them are amazing and are really talented in coding.
+- I collaborated with Bryant Davis on Lab07-Lab09.
 
 ### Sites utilized
 
