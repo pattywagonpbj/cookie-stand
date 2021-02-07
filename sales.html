@@ -15,13 +15,33 @@
       </ul>
     </nav>
     <h1>Salmon Cookies Sales</h1>
-
+<form>
+  <fieldset>
+    <legend>Create a New Salmon Cookie Store</legend>
+    <label> Location Name
+      <input type="text" name="LocationName">
+    </label>
+    <label> Min Customer Per Hour
+      <input type="text" name="MinCustomerPerHour">
+    </label>
+    <label> Max Customer Per Hour
+      <input type="text" name="MaxCustomerPerHour">
+    </label>
+    <label> Avg Cookie Sale Per Hour
+      <input type="text" name="AvgCookieSalePerHour">
+    </label>
+    <button type="submit">Create Store</button>
+  </fieldset>
+</form>
     <table>
       <thead>
         <tr id="StoreHours">
         </tr>
       </thead>
       <tbody id="CookiesSold"></tbody>
+      <tfoot>
+        <tr id="CookiesSoldPerHour"></tr>
+      </tfoot>
     </table>
   
     <script src="js/sales.js"></script>
