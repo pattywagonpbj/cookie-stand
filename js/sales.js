@@ -3,6 +3,9 @@
 console.log('Hello world');
 
 let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+let allStores = [];
+let grandTotal = 0;
+let footerTotal = [];
 
 // let seattle = {
 //   name: 'Seattle',
@@ -20,6 +23,7 @@ function Store(name, minCustEachHour, maxCustEachHour, avgCookiesSoldPerCustomer
   this.avgCookiesSoldPerCustomer = avgCookiesSoldPerCustomer;
   this.cookiesSoldEachHour = [];
   this.dailyStoreTotal = 0;
+  allStores.push(this);
   // this.render();
 }
 
@@ -78,6 +82,7 @@ function tableHeader () {
 }
 
 function tableFooter () {
+  tablefooterCalc();
   let tr = document.getElementById('CookiesSoldPerHour');
 
   let td = document.createElement('td');
@@ -86,16 +91,27 @@ function tableFooter () {
 
   for(let i=0; i < hours.length; i++) {
     td = document.createElement('td');
-    td.textContent = 0;
+    td.textContent = footerTotal[i];
     tr.appendChild(td);
   }
 
   td = document.createElement('td');
-  td.textContent = 0;
+  td.textContent = grandTotal;
   tr.appendChild(td);
 }
 
-
+function tablefooterCalc(){
+  footerTotal = [];
+  grandTotal = 0;
+  for(let i=0; i < hours.length; i++){
+    let hourTotal = 0;
+    for(let j=0; j < allStores.length; j++){
+      hourTotal += allStores[j].cookiesSoldEachHour[i];
+    }
+    grandTotal += hourTotal;
+    footerTotal.push(hourTotal);
+  }
+}
 
 let seattleLocation = new Store('Seattle', 23, 65, 6.3);
 let tokyoLocation = new Store('Tokyo', 3, 24, 1.2);
@@ -110,3 +126,4 @@ parisLocation.render();
 limaLocation.render();
 tableHeader();
 tableFooter();
+// tablefooterCalc();
